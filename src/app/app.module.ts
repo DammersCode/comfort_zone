@@ -16,9 +16,18 @@ import { DashboardComponent } from './navigation/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { CocktailsPreviewComponent } from './navigation/dashboard/card-previews/cocktails-preview/cocktails-preview.component';
+import { DynamicComponentModule } from './directives/dynamic-component/dynamic-component.module';
+import { CocktailsComponent } from './navigation/pages/cocktails/cocktails.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    DashboardComponent,
+    CocktailsPreviewComponent,
+    CocktailsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,6 +41,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    DynamicComponentModule,
   ],
   providers: [IconRegistrationService],
   bootstrap: [AppComponent],

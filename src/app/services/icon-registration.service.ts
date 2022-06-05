@@ -15,7 +15,6 @@ export class IconRegistrationService {
    * registerIcons
    */
   public registerIcons() {
-    debugger;
     this.iconRegistry.addSvgIcon(
       'cocktail',
       this.sanitizer.bypassSecurityTrustResourceUrl(
