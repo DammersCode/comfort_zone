@@ -1,18 +1,16 @@
+import { NavigationComponent } from './navigation/navigation.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
+import { CocktailsPage } from './pages/cocktails/cocktails.component';
 
-const routes: Routes = [{}];
+const routes: Routes = [
+  { path: 'navigation', component: NavigationComponent },
+  { path: 'cocktails', component: CocktailsPage },
+  { path: '**', redirectTo: 'navigation' },
+];
 
 @NgModule({
-  imports: [
-    //material
-    MatIconModule,
-
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

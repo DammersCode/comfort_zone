@@ -18,7 +18,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { CocktailsPreviewComponent } from './navigation/dashboard/card-previews/cocktails-preview/cocktails-preview.component';
 import { DynamicComponentModule } from './directives/dynamic-component/dynamic-component.module';
-import { CocktailsComponent } from './navigation/pages/cocktails/cocktails.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CocktailsPage } from './pages/cocktails/cocktails.component';
+import { PageNavigation } from './pages/pagenav/pagenav.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { CocktailsComponent } from './navigation/pages/cocktails/cocktails.compo
     NavigationComponent,
     DashboardComponent,
     CocktailsPreviewComponent,
-    CocktailsComponent,
+    CocktailsPage,
+    PageNavigation,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,8 @@ import { CocktailsComponent } from './navigation/pages/cocktails/cocktails.compo
     MatCardModule,
     MatMenuModule,
     DynamicComponentModule,
+    MatIconModule,
+    HttpClientModule,
   ],
   providers: [IconRegistrationService],
   bootstrap: [AppComponent],
