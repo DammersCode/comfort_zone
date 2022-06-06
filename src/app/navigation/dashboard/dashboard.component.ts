@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { DashboardLayout } from './dashboard-layout.model';
+import { IDashboardLayout } from './dashboard-layout.model';
 import { CocktailsPreviewComponent } from './card-previews/cocktails-preview/cocktails-preview.component';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +11,14 @@ import { CocktailsPreviewComponent } from './card-previews/cocktails-preview/coc
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  private cardsLayout: DashboardLayout[] = [
+  private cardsLayout: IDashboardLayout[] = [
     {
       title: 'Cocktails',
       subtitle: 'There can’t be good living where there is not good drinking.',
       cols: 1,
       rows: 1,
       icon: 'cocktail',
+      link: '/cocktails',
       view: {
         component: CocktailsPreviewComponent,
       },
@@ -32,13 +34,24 @@ export class DashboardComponent {
     map(({ matches }) => {
       //mobile
       if (matches) {
-        return this.cardsLayout;
+        return this.layoutTooMobile(this.cardsLayout);
       }
 
       //desktop
       return this.cardsLayout;
-    })
+    }),
+    shareReplay()
   );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  private layoutTooMobile(layout: IDashboardLayout[]): IDashboardLayout[] {
+    let newLayout = _.cloneDeep(layout);
+    newLayout.map((nLayout) => {
+      if (nLayout.cols === 1) {
+        nLayout.cols = 2;
+      }
+    });
+    return newLayout;
+  }
 }

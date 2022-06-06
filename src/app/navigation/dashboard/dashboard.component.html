@@ -24,8 +24,7 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item routerLink="{{ card.link }}">Open</button>
             </mat-menu>
           </mat-card-title>
           <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>

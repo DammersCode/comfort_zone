@@ -14,5 +14,5 @@ export class AppComponent {
   ) {
     this.IconRegistrationService.registerIcons();
   }
-  title = 'comfort_zone';
+  title = 'Comfort Zone';
 }
