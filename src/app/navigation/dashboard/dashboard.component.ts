@@ -23,7 +23,7 @@ export class DashboardComponent {
         component: CocktailsPreviewComponent,
       },
     },
-    { title: 'Card 2', cols: 1, rows: 1 },
+    { title: 'Memes', icon: 'doge', cols: 1, rows: 1 },
     { title: 'Card 3', cols: 2, rows: 1 },
     { title: 'Card 4', cols: 1, rows: 1 },
     { title: 'Card 5', cols: 1, rows: 1 },

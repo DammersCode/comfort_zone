@@ -9,9 +9,10 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-icon
+            *ngIf="card.icon"
             mat-card-avatar
             class="dashboard-card-icon"
-            [svgIcon]="card.icon ?? ''"
+            [svgIcon]="card.icon"
           ></mat-icon>
           <mat-card-title>
             {{ card.title }}

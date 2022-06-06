@@ -11,8 +11,6 @@ export class AppComponent {
   constructor(
     private IconRegistrationService: IconRegistrationService,
     private navigationService: NavigationService
-  ) {
-    this.IconRegistrationService.registerIcons();
-  }
+  ) {}
   title = 'Comfort Zone';
 }
