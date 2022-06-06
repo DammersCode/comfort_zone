@@ -2,6 +2,11 @@
   <button mat-stroked-button (click)="navigateBack()">
     <mat-icon>navigate_before</mat-icon>
   </button>
-  <span>comfort_zone</span>
+  <span>{{ pageConfig.title }}</span>
 </mat-toolbar>
 <!-- Add Content Here -->
+<div>
+  <div loadComponent *ngIf="pageConfig.page" [config]="pageConfig.page">
+    <div #target></div>
+  </div>
+</div>
