@@ -17,14 +17,27 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
+        id="sidenav-button"
         type="button"
         aria-label="Toggle sidenav"
-        mat-icon-button
+        mat-stroked-button
         (click)="drawer.toggle()"
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>comfort_zone</span>
+      <ngx-typed-js
+        (lastStringBackspaced)="typingLastStringBackspaced()"
+        [strings]="_typeConfig.typeString"
+        [loop]="_typeConfig.config.loop"
+        [smartBackspace]="true"
+        [typeSpeed]="80"
+        [backSpeed]="40"
+        [backDelay]="1000"
+        [startDelay]="1400"
+        [showCursor]="_typeConfig.config.showCursor"
+      >
+        <span class="typing"></span>
+      </ngx-typed-js>
     </mat-toolbar>
     <!-- Add Content Here -->
     <app-dashboard></app-dashboard>

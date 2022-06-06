@@ -21,6 +21,7 @@ import { DynamicComponentModule } from './directives/dynamic-component/dynamic-c
 import { HttpClientModule } from '@angular/common/http';
 import { CocktailsPage } from './pages/cocktails/cocktails.component';
 import { PageNavigation } from './pages/pagenav/pagenav.component';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { PageNavigation } from './pages/pagenav/pagenav.component';
     DynamicComponentModule,
     MatIconModule,
     HttpClientModule,
+    NgxTypedJsModule,
   ],
   providers: [IconRegistrationService],
   bootstrap: [AppComponent],
