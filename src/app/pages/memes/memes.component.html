@@ -1,0 +1,17 @@
+<mat-grid-list
+  class="meme-container"
+  cols="1"
+  rowHeight="2:1"
+  gutterSize="1rem"
+>
+  <mat-grid-tile *ngFor="let meme of memesJson.data.memes">
+    <img
+      [lazyLoad]="meme.url"
+      [width]="meme.width"
+      [height]="meme.height"
+      [useSrcset]="true"
+      decoding="async"
+      alt="{{ meme.name }}"
+    />
+  </mat-grid-tile>
+</mat-grid-list>

@@ -22,6 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CocktailsPage } from './pages/cocktails/cocktails.component';
 import { PageNavigation } from './pages/pagenav/pagenav.component';
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { MemesPreviewComponent } from './navigation/dashboard/card-previews/memes-preview/memes-preview.component';
+import { MemesPage } from './pages/memes/memes.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,8 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     CocktailsPreviewComponent,
     CocktailsPage,
     PageNavigation,
+    MemesPreviewComponent,
+    MemesPage,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,9 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     MatIconModule,
     HttpClientModule,
     NgxTypedJsModule,
+    MatGridListModule,
+    MatDividerModule,
+    LazyLoadImageModule,
   ],
   providers: [IconRegistrationService],
   bootstrap: [AppComponent],

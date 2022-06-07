@@ -1,0 +1,18 @@
+.meme-container {
+  mat-grid-tile {
+    background-color: #303030;
+    border: 1rem solid #303030;
+  }
+  img {
+    margin: 1rem 0;
+    max-inline-size: 100%;
+    block-size: auto;
+
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  img.ng-lazyloaded {
+    opacity: 1;
+  }
+}
