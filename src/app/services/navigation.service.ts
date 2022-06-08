@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, NavigationEnd, RoutesRecognized } from '@angular/router';
+import {
+  Router,
+  NavigationEnd,
+  RoutesRecognized,
+  RouterStateSnapshot,
+  TitleStrategy,
+  ActivatedRouteSnapshot,
+  ActivatedRoute,
+} from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class NavigationService {

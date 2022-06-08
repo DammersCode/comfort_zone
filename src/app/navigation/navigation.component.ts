@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { NavigationService } from './../services/navigation.service';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay, takeLast } from 'rxjs/operators';
@@ -9,7 +10,7 @@ import { routes } from '../app-routing.module';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
   public _typeConfig = {
     typeString: [''],
     config: {
@@ -49,7 +50,9 @@ export class NavigationComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  public typingLastStringBackspaced() {
+  ngOnInit(): void {}
+
+  public setDefaultTyping() {
     this._typeConfig.typeString = ['Comfort Zone'];
     this._typeConfig.config.loop = false;
     this._typeConfig.config.showCursor = false;
