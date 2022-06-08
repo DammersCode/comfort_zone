@@ -26,4 +26,8 @@ export class MemesPage implements OnInit {
       });
     });
   }
+
+  test() {
+    debugger;
+  }
 }

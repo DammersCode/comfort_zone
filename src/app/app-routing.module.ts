@@ -1,21 +1,17 @@
+import { PageNavigation } from './navigation/pagenav/pagenav.component';
+import { DashboardComponent } from './navigation/dashboard/dashboard.component';
 import { PageTitleStrategyService } from '../app/services/page-title-strategy.service';
 import { MemesPage } from './pages/memes/memes.component';
-import { IPageNavigation } from './pages/pagenav/interfaces/ipage-navigation.model';
+
 import { CocktailsPage } from './pages/cocktails/cocktails.component';
-import { PageNavigation } from './pages/pagenav/pagenav.component';
+
 import { NavigationComponent } from './navigation/navigation.component';
 import { NgModule } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  RouterModule,
-  RouterStateSnapshot,
-  Routes,
-  TitleStrategy,
-} from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { RouterModule, Routes, TitleStrategy } from '@angular/router';
+import { IPageNavigation } from './navigation/pagenav/interfaces/ipage-navigation.model';
 
 export const routes: Routes = [
-  { path: 'navigation', component: NavigationComponent },
+  { path: 'dashboard', component: DashboardComponent },
   {
     title: 'Cocktails',
     path: 'cocktails',
@@ -38,7 +34,7 @@ export const routes: Routes = [
       },
     } as IPageNavigation,
   },
-  { path: '**', redirectTo: 'navigation' },
+  { path: '**', redirectTo: 'dashboard' },
 ];
 
 @NgModule({

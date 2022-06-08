@@ -20,12 +20,14 @@ import { CocktailsPreviewComponent } from './navigation/dashboard/card-previews/
 import { DynamicComponentModule } from './directives/dynamic-component/dynamic-component.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CocktailsPage } from './pages/cocktails/cocktails.component';
-import { PageNavigation } from './pages/pagenav/pagenav.component';
+
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { MemesPreviewComponent } from './navigation/dashboard/card-previews/memes-preview/memes-preview.component';
 import { MemesPage } from './pages/memes/memes.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { PageNavigation } from './navigation/pagenav/pagenav.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     MatGridListModule,
     MatDividerModule,
     LazyLoadImageModule,
+    ClipboardModule,
   ],
   providers: [IconRegistrationService],
   bootstrap: [AppComponent],

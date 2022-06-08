@@ -1,12 +1,21 @@
 .meme-container {
-  mat-grid-tile {
-    background-color: #303030;
-    border: 1rem solid #303030;
+  background-color: #303030;
+  border: 1rem solid #303030;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .meme-card {
+    margin: 1rem;
   }
+
   img {
-    margin: 1rem 0;
+    margin: 0 1rem 1rem;
     max-inline-size: 100%;
     block-size: auto;
+
+    max-width: 300px;
 
     opacity: 0;
     transition: opacity 1s;
