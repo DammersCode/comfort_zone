@@ -1,5 +1,4 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile
       *ngFor="let card of cards | async"
@@ -31,7 +30,7 @@
           <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div loadComponent *ngIf="card.view" [config]="card.view">
+          <div loadComponent *ngIf="card.preview" [config]="card.preview">
             <div #target></div>
           </div>
         </mat-card-content>

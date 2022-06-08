@@ -5,7 +5,7 @@ export interface IDashboardLayout {
   cols: number;
   rows: number;
   link?: string;
-  view?: {
+  preview?: {
     config?: any;
     component: any;
   };

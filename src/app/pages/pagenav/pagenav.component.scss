@@ -1,6 +1,12 @@
-mat-toolbar {
-  justify-content: space-between;
-  span {
-    margin: 0 1rem;
+.container {
+  mat-toolbar {
+    justify-content: center;
+    #toolbar-navigate-before {
+      position: absolute;
+      left: 1rem;
+    }
+    #toolbar-title {
+      margin: 0 1rem;
+    }
   }
 }

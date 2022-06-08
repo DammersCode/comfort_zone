@@ -1,8 +1,9 @@
+import { PageViewService } from './../services/page-view.service';
 import { NavigationService } from './../services/navigation.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay, takeLast } from 'rxjs/operators';
+import { map, shareReplay, takeLast, takeUntil } from 'rxjs/operators';
 import { routes } from '../app-routing.module';
 
 @Component({
@@ -10,7 +11,7 @@ import { routes } from '../app-routing.module';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
   public _typeConfig = {
     typeString: [''],
     config: {
@@ -19,38 +20,37 @@ export class NavigationComponent implements OnInit {
     },
   };
 
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map(({ matches }) => {
-        //mobile
-        if (matches) {
-          this._typeConfig.typeString = ['Welcome to the', 'Comfort Zone'];
-          this._typeConfig.config.loop = false;
-          this._typeConfig.config.showCursor = false;
-        }
-        //desktop
-        else {
-          this._typeConfig.typeString = [
-            'Welcome to the Comfort Zone 🤯   ',
-            'Created by github/DammersCode 🕶️   ',
-            'Here you can find many interesting and experimental sites / components',
-            'If you find something not finished or buggy let me know',
-            'If you find something that i could include leave me a message on github',
-            'What do i use? ^1200 Angular v.14',
-          ];
-          this._typeConfig.config.loop = true;
-          this._typeConfig.config.showCursor = true;
-        }
+  public isHandset$: Observable<boolean> = this.pageViewService.isHandset$;
 
-        return matches;
-      }),
-      shareReplay()
-    );
+  constructor(private pageViewService: PageViewService) {}
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  ngOnDestroy(): void {
+    this.isHandset$.subscribe();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isHandset$.subscribe((isHandset) => {
+      //mobile
+      if (isHandset) {
+        this._typeConfig.typeString = ['Welcome to the', 'Comfort Zone'];
+        this._typeConfig.config.loop = false;
+        this._typeConfig.config.showCursor = false;
+      }
+      //tablet - desktop
+      else {
+        this._typeConfig.typeString = [
+          'Welcome to the Comfort Zone 🤯   ',
+          'Created by github/DammersCode 🕶️   ',
+          'Here you can find many interesting and experimental sites / components',
+          'If you find something not finished or buggy let me know',
+          'If you find something that i could include leave me a message on github',
+          'What do i use? ^1200 Angular v.14',
+        ];
+        this._typeConfig.config.loop = true;
+        this._typeConfig.config.showCursor = true;
+      }
+    });
+  }
 
   public setDefaultTyping() {
     this._typeConfig.typeString = ['Comfort Zone'];

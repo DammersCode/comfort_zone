@@ -1,3 +1,4 @@
+import { MemesPreviewComponent } from './card-previews/memes-preview/memes-preview.component';
 import { Component } from '@angular/core';
 import { map, shareReplay } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -19,11 +20,21 @@ export class DashboardComponent {
       rows: 1,
       icon: 'cocktail',
       link: '/cocktails',
-      view: {
+      preview: {
         component: CocktailsPreviewComponent,
       },
     },
-    { title: 'Memes', icon: 'doge', cols: 1, rows: 1 },
+    {
+      title: 'Memes',
+      subtitle: `People are a–holes. Just make sure you’re not the toilet paper.`,
+      icon: 'doge',
+      link: '/memes',
+      preview: {
+        component: MemesPreviewComponent,
+      },
+      cols: 1,
+      rows: 1,
+    },
     { title: 'Card 3', cols: 2, rows: 1 },
     { title: 'Card 4', cols: 1, rows: 1 },
     { title: 'Card 5', cols: 1, rows: 1 },

@@ -1,12 +1,18 @@
-<mat-toolbar color="primary">
-  <button mat-stroked-button (click)="navigateBack()">
-    <mat-icon>navigate_before</mat-icon>
-  </button>
-  <span>{{ pageConfig.title }}</span>
-</mat-toolbar>
-<!-- Add Content Here -->
-<div>
-  <div loadComponent *ngIf="pageConfig.page" [config]="pageConfig.page">
-    <div #target></div>
+<div class="container">
+  <mat-toolbar color="primary">
+    <button
+      id="toolbar-navigate-before"
+      mat-stroked-button
+      (click)="navigateBack()"
+    >
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <span id="toolbar-title">{{ pageConfig.title }}</span>
+  </mat-toolbar>
+  <!-- Add Content Here -->
+  <div>
+    <div loadComponent *ngIf="pageConfig.page" [config]="pageConfig.page">
+      <div #target></div>
+    </div>
   </div>
 </div>
