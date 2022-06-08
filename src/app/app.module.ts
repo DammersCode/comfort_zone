@@ -28,6 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { PageNavigation } from './navigation/pagenav/pagenav.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatDividerModule,
     LazyLoadImageModule,
     ClipboardModule,
+    ScrollingModule,
   ],
   providers: [IconRegistrationService],
   bootstrap: [AppComponent],

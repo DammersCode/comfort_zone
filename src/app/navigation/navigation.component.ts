@@ -1,10 +1,16 @@
 import { PageViewService } from './../services/page-view.service';
 import { NavigationService } from './../services/navigation.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  HostListener,
+  Inject,
+} from '@angular/core';
+
 import { Observable } from 'rxjs';
-import { map, shareReplay, takeLast, takeUntil } from 'rxjs/operators';
-import { routes } from '../app-routing.module';
+
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
