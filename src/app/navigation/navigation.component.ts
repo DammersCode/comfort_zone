@@ -2,7 +2,7 @@ import { PageViewService } from './../services/page-view.service';
 
 import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -15,6 +15,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
     config: {
       loop: false,
       showCursor: true,
+      startDelay: 1400,
     },
   };
 
@@ -27,7 +28,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isHandset$.subscribe((isHandset) => {
+    this.isHandset$.pipe(take(1)).subscribe((isHandset) => {
       //mobile
       if (isHandset) {
         this._typeConfig.typeString = ['Welcome to the', 'Comfort Zone'];
@@ -39,7 +40,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
         this._typeConfig.typeString = [
           'Welcome to the Comfort Zone 🤯   ',
           'Created by github/DammersCode 🕶️   ',
-
           `What do i use? ^1200 Angular ${VERSION.full}`,
         ];
         this._typeConfig.config.loop = true;
@@ -52,5 +52,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this._typeConfig.typeString = ['Comfort Zone'];
     this._typeConfig.config.loop = false;
     this._typeConfig.config.showCursor = false;
+    this._typeConfig.config.startDelay = 0;
   }
 }
