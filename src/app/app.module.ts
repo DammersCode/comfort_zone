@@ -1,3 +1,4 @@
+import { CoreService } from './app-core.service';
 import { IconRegistrationService } from './services/icon-registration.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,10 +26,15 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
 import { MemesPreviewComponent } from './navigation/dashboard/card-previews/memes-preview/memes-preview.component';
 import { MemesPage } from './pages/memes/memes.component';
 import { MatDividerModule } from '@angular/material/divider';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
+import {
+  LazyLoadImageModule,
+  LAZYLOAD_IMAGE_HOOKS,
+  ScrollHooks,
+} from 'ng-lazyload-image';
 import { PageNavigation } from './navigation/pagenav/pagenav.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -63,8 +69,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     LazyLoadImageModule,
     ClipboardModule,
     ScrollingModule,
+    MatSnackBarModule,
   ],
-  providers: [IconRegistrationService],
+  providers: [CoreService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

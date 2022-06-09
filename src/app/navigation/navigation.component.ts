@@ -1,16 +1,8 @@
 import { PageViewService } from './../services/page-view.service';
-import { NavigationService } from './../services/navigation.service';
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  HostListener,
-  Inject,
-} from '@angular/core';
+
+import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
 
 import { Observable } from 'rxjs';
-
-import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
@@ -47,10 +39,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
         this._typeConfig.typeString = [
           'Welcome to the Comfort Zone 🤯   ',
           'Created by github/DammersCode 🕶️   ',
-          'Here you can find many interesting and experimental sites / components',
-          'If you find something not finished or buggy let me know',
-          'If you find something that i could include leave me a message on github',
-          'What do i use? ^1200 Angular v.14',
+
+          `What do i use? ^1200 Angular ${VERSION.full}`,
         ];
         this._typeConfig.config.loop = true;
         this._typeConfig.config.showCursor = true;

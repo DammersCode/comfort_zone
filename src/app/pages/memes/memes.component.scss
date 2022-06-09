@@ -25,3 +25,13 @@
     opacity: 1;
   }
 }
+
+::ng-deep .snackbar {
+  ::ng-deep .mat-simple-snackbar {
+    display: flex;
+    justify-content: center;
+  }
+
+  min-width: unset !important;
+  background-color: #69f0ae;
+}

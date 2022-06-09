@@ -1,7 +1,7 @@
 import { IPageNavigation } from './interfaces/ipage-navigation.model';
 import { Router, RoutesRecognized } from '@angular/router';
 
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -24,7 +24,7 @@ export class PageNavigation implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private navigationService: NavigationService
+    public navigationService: NavigationService
   ) {
     this.pageConfig = this.navigationService.firstChildPageConfig;
   }
@@ -33,5 +33,9 @@ export class PageNavigation implements OnInit {
 
   public navigateBack(): void {
     this.navigationService.back();
+  }
+
+  public navigateForward(): void {
+    this.navigationService.forward();
   }
 }

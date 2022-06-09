@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { result } from 'lodash';
-import { takeUntil } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { takeUntil, Observable, Subject } from 'rxjs';
 import { ImgFlipModel } from './img-flip.model';
 
 @Component({
@@ -10,24 +11,27 @@ import { ImgFlipModel } from './img-flip.model';
   styleUrls: ['./memes.component.scss'],
 })
 export class MemesPage implements OnInit {
+  //TODO cards lazy load with picture
   private readonly apiURL: string = 'https://api.imgflip.com/get_memes';
 
-  public memesJson: ImgFlipModel = {} as ImgFlipModel;
+  public memesJson: Subject<ImgFlipModel> = new Subject();
 
-  constructor(private http: HttpClient) {}
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    //TODO make it async
-    const x = this.http.get(this.apiURL).pipe();
-
     fetch(this.apiURL).then((result) => {
       result.json().then((json) => {
-        this.memesJson = json;
+        this.memesJson.next(json);
       });
     });
   }
 
-  test() {
-    debugger;
+  onCopied() {
+    this.snackBar.open('Copied', undefined, {
+      duration: 2500,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: 'snackbar',
+    });
   }
 }

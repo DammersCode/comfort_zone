@@ -1,5 +1,5 @@
 <div class="meme-container">
-  <div *ngFor="let meme of memesJson.data.memes">
+  <div *ngFor="let meme of (memesJson | async)?.data?.memes">
     <mat-card class="meme-card">
       <mat-card-header>
         <mat-card-title>{{ meme.name }}</mat-card-title>
@@ -18,7 +18,7 @@
         />
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [cdkCopyToClipboard]="meme.url" (click)="test()">
+        <button mat-button [cdkCopyToClipboard]="meme.url" (click)="onCopied()">
           Copy Link
         </button>
       </mat-card-actions>

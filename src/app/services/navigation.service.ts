@@ -8,7 +8,9 @@ import {
   TitleStrategy,
   ActivatedRouteSnapshot,
   ActivatedRoute,
+  NavigationStart,
 } from '@angular/router';
+import * as _ from 'lodash';
 
 @Injectable({ providedIn: 'root' })
 export class NavigationService {
@@ -28,12 +30,16 @@ export class NavigationService {
     });
   }
 
-  back(): void {
+  public back(): void {
     this.history.pop();
     if (this.history.length > 0) {
       this.location.back();
     } else {
       this.router.navigateByUrl('/');
     }
+  }
+
+  public forward(): void {
+    this.location.forward();
   }
 }

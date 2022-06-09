@@ -8,6 +8,13 @@
       <mat-icon>navigate_before</mat-icon>
     </button>
     <span id="toolbar-title">{{ pageConfig.title }}</span>
+    <button
+      id="toolbar-navigate-forward"
+      mat-stroked-button
+      (click)="navigateForward()"
+    >
+      <mat-icon>navigate_next</mat-icon>
+    </button>
   </mat-toolbar>
   <!-- Add Content Here -->
   <div>
