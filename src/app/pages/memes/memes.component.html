@@ -1,9 +1,16 @@
 <div class="meme-container">
-  <div *ngFor="let meme of (memesJson | async)?.data?.memes">
+  <div *ngFor="let meme of (memesJson$ | async)?.data?.memes">
     <mat-card class="meme-card">
       <mat-card-header>
         <mat-card-title>{{ meme.name }}</mat-card-title>
-        <mat-card-subtitle>{{ meme.id }}</mat-card-subtitle>
+        <mat-card-subtitle
+          ><a
+            id="meme-id"
+            [href]="apiURLs.memeGenerator + meme.id"
+            target="_blank"
+            >{{ meme.id }}</a
+          ></mat-card-subtitle
+        >
       </mat-card-header>
 
       <mat-card-content>

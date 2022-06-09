@@ -35,6 +35,7 @@ import { PageNavigation } from './navigation/pagenav/pagenav.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ClipboardModule,
     ScrollingModule,
     MatSnackBarModule,
+    MatTooltipModule,
   ],
   providers: [CoreService],
   bootstrap: [AppComponent],

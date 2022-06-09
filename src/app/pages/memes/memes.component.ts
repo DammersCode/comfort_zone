@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { PageViewService } from './../../services/page-view.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -12,16 +12,30 @@ import { ImgFlipModel } from './img-flip.model';
 })
 export class MemesPage implements OnInit {
   //TODO cards lazy load with picture
-  private readonly apiURL: string = 'https://api.imgflip.com/get_memes';
+  public readonly apiURLs = {
+    getMemes: 'https://api.imgflip.com/get_memes',
+    memeGenerator: 'https://imgflip.com/memegenerator/',
+  };
 
-  public memesJson: Subject<ImgFlipModel> = new Subject();
+  public memesJson$: Subject<ImgFlipModel> = new Subject();
 
-  constructor(private snackBar: MatSnackBar) {}
+  public isHandset$ = this.pageViewService.isHandset$;
+
+  constructor(
+    private snackBar: MatSnackBar,
+    private pageViewService: PageViewService
+  ) {}
 
   ngOnInit(): void {
-    fetch(this.apiURL).then((result) => {
+    this.isHandset$.subscribe((handset) => {
+      if (handset) {
+      } else {
+      }
+    });
+
+    fetch(this.apiURLs.getMemes).then((result) => {
       result.json().then((json) => {
-        this.memesJson.next(json);
+        this.memesJson$.next(json);
       });
     });
   }
