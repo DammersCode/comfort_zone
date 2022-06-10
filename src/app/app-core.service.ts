@@ -1,5 +1,5 @@
 import { NavigationService } from './services/navigation.service';
-import { PageViewService } from './services/page-view.service';
+import { BreakpointsService } from './services/breakpoints.service';
 import { IconRegistrationService } from './services/icon-registration.service';
 import { Injectable } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { Injectable } from '@angular/core';
 export class CoreService {
   constructor(
     private IconRegistrationService: IconRegistrationService,
-    private PageViewService: PageViewService,
+    private BreakpointsService: BreakpointsService,
     private NavigationService: NavigationService
   ) {}
 }

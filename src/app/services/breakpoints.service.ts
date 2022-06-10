@@ -5,7 +5,7 @@ import { map, Observable, shareReplay } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PageViewService {
+export class BreakpointsService {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   public isHandset$: Observable<boolean> = this.breakpointObserver

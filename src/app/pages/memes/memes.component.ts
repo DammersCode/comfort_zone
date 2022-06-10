@@ -1,4 +1,4 @@
-import { PageViewService } from './../../services/page-view.service';
+import { BreakpointsService } from '../../services/breakpoints.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -23,7 +23,7 @@ export class MemesPage implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private pageViewService: PageViewService
+    private pageViewService: BreakpointsService
   ) {}
 
   ngOnInit(): void {

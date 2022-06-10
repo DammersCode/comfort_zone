@@ -1,4 +1,4 @@
-import { PageViewService } from './../services/page-view.service';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
 
@@ -21,7 +21,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   public isHandset$: Observable<boolean> = this.pageViewService.isHandset$;
 
-  constructor(private pageViewService: PageViewService) {}
+  constructor(private pageViewService: BreakpointsService) {}
 
   ngOnDestroy(): void {
     this.isHandset$.subscribe();

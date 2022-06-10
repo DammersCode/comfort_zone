@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-toolbar color="primary">
+  <mat-toolbar *ngIf="isHandset$ | async" color="primary">
     <button
       id="toolbar-navigate-before"
       mat-stroked-button
@@ -9,6 +9,7 @@
     </button>
     <span id="toolbar-title">{{ pageConfig.title }}</span>
     <button
+      *ngIf="navigationService.isForwardPossible"
       id="toolbar-navigate-forward"
       mat-stroked-button
       (click)="navigateForward()"

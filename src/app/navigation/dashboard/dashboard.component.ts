@@ -1,4 +1,4 @@
-import { PageViewService } from './../../services/page-view.service';
+import { BreakpointsService } from '../../services/breakpoints.service';
 import { MemesPreviewComponent } from './card-previews/memes-preview/memes-preview.component';
 import { Component, OnDestroy } from '@angular/core';
 import { map, shareReplay } from 'rxjs/operators';
@@ -56,7 +56,7 @@ export class DashboardComponent implements OnDestroy {
     }
   );
 
-  constructor(private pageViewService: PageViewService) {}
+  constructor(private pageViewService: BreakpointsService) {}
 
   ngOnDestroy(): void {
     this.isHandset$.unsubscribe();
