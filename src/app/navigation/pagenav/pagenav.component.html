@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-toolbar *ngIf="isHandset$ | async" color="primary">
+  <mat-toolbar *ngIf="coreService.isMobileNavigation" color="primary">
     <button
       id="toolbar-navigate-before"
       mat-stroked-button

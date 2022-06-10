@@ -4,6 +4,7 @@ import { IPageNavigation } from './interfaces/ipage-navigation.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NavigationService } from '../../services/navigation.service';
+import { CoreService } from '../../app-core.service';
 
 @Component({
   selector: 'pagenav',
@@ -13,11 +14,9 @@ import { NavigationService } from '../../services/navigation.service';
 export class PageNavigation implements OnInit {
   public pageConfig: IPageNavigation = { title: 'error' };
 
-  public isHandset$: Observable<boolean> = this.breakpointsService.isHandset$;
-
   constructor(
     public navigationService: NavigationService,
-    private breakpointsService: BreakpointsService
+    public coreService: CoreService
   ) {
     this.pageConfig = this.navigationService.firstChildPageConfig;
   }

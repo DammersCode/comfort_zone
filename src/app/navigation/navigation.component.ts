@@ -1,3 +1,4 @@
+import { CoreService } from './../app-core.service';
 import { PageNavigation } from './pagenav/pagenav.component';
 import { BreakpointsService } from '../services/breakpoints.service';
 
@@ -14,6 +15,7 @@ import {
 import { Observable, Subscription, take } from 'rxjs';
 import { NavigationService } from '../services/navigation.service';
 import { IPageNavigation } from './pagenav/interfaces/ipage-navigation.model';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-navigation',
@@ -34,7 +36,10 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   public isHandset$: Observable<boolean> = this.pageViewService.isHandset$;
 
-  constructor(private pageViewService: BreakpointsService) {}
+  constructor(
+    private pageViewService: BreakpointsService,
+    public coreService: CoreService
+  ) {}
 
   ngOnDestroy(): void {}
 
@@ -64,5 +69,9 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this._typeConfig.config.loop = false;
     this._typeConfig.config.showCursor = false;
     this._typeConfig.config.startDelay = 0;
+  }
+
+  public toggleChanged(event: MatSlideToggleChange) {
+    this.coreService.isMobileNavigation = event.checked;
   }
 }

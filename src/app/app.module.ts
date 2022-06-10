@@ -36,6 +36,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ScrollingModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatSlideToggleModule,
   ],
   providers: [CoreService],
   bootstrap: [AppComponent],

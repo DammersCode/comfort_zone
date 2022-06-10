@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CoreService {
+  public isMobileNavigation: boolean = false;
   constructor(
     private IconRegistrationService: IconRegistrationService,
     private BreakpointsService: BreakpointsService,
