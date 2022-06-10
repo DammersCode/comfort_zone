@@ -16,4 +16,20 @@ export class BreakpointsService {
       }),
       shareReplay()
     );
+  public isXSmall$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.XSmall)
+    .pipe(
+      map(({ matches }) => {
+        return matches;
+      }),
+      shareReplay()
+    );
+  public isXLarge$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.XLarge)
+    .pipe(
+      map(({ matches }) => {
+        return matches;
+      }),
+      shareReplay()
+    );
 }
