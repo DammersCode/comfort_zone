@@ -1,7 +1,7 @@
 import { BreakpointsService } from '../../services/breakpoints.service';
 import { IPageNavigation } from './interfaces/ipage-navigation.model';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NavigationService } from '../../services/navigation.service';
 

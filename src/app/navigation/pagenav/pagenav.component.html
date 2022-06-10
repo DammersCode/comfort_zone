@@ -9,7 +9,6 @@
     </button>
     <span id="toolbar-title">{{ pageConfig.title }}</span>
     <button
-      *ngIf="navigationService.isForwardPossible"
       id="toolbar-navigate-forward"
       mat-stroked-button
       (click)="navigateForward()"
@@ -18,6 +17,7 @@
     </button>
   </mat-toolbar>
   <!-- Add Content Here -->
+
   <div>
     <div loadComponent *ngIf="pageConfig.page" [config]="pageConfig.page">
       <div #target></div>

@@ -1,8 +1,19 @@
+import { PageNavigation } from './pagenav/pagenav.component';
 import { BreakpointsService } from '../services/breakpoints.service';
 
-import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  VERSION,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 
-import { Observable, take } from 'rxjs';
+import { Observable, Subscription, take } from 'rxjs';
+import { NavigationService } from '../services/navigation.service';
+import { IPageNavigation } from './pagenav/interfaces/ipage-navigation.model';
 
 @Component({
   selector: 'app-navigation',
@@ -19,13 +30,13 @@ export class NavigationComponent implements OnInit, OnDestroy {
     },
   };
 
+  public pagNavVisible: boolean = false;
+
   public isHandset$: Observable<boolean> = this.pageViewService.isHandset$;
 
   constructor(private pageViewService: BreakpointsService) {}
 
-  ngOnDestroy(): void {
-    this.isHandset$.subscribe();
-  }
+  ngOnDestroy(): void {}
 
   ngOnInit(): void {
     this.isHandset$.pipe(take(1)).subscribe((isHandset) => {
