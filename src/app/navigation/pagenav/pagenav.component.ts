@@ -1,11 +1,10 @@
+import { BreakpointsService } from '../../services/breakpoints.service';
 import { IPageNavigation } from './interfaces/ipage-navigation.model';
-import { Router, RoutesRecognized } from '@angular/router';
 
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
 import { NavigationService } from '../../services/navigation.service';
+import { CoreService } from '../../app-core.service';
 
 @Component({
   selector: 'pagenav',
@@ -15,16 +14,9 @@ import { NavigationService } from '../../services/navigation.service';
 export class PageNavigation implements OnInit {
   public pageConfig: IPageNavigation = { title: 'error' };
 
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay()
-    );
-
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    public navigationService: NavigationService
+    public navigationService: NavigationService,
+    public coreService: CoreService
   ) {
     this.pageConfig = this.navigationService.firstChildPageConfig;
   }

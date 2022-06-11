@@ -1,5 +1,6 @@
+import { UrlService } from './services/url.service';
 import { NavigationService } from './services/navigation.service';
-import { PageViewService } from './services/page-view.service';
+import { BreakpointsService } from './services/breakpoints.service';
 import { IconRegistrationService } from './services/icon-registration.service';
 import { Injectable } from '@angular/core';
 
@@ -10,9 +11,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CoreService {
+  public isMobileNavigation: boolean = false;
   constructor(
     private IconRegistrationService: IconRegistrationService,
-    private PageViewService: PageViewService,
-    private NavigationService: NavigationService
+    private BreakpointsService: BreakpointsService,
+    private NavigationService: NavigationService,
+    private UrlService: UrlService
   ) {}
 }

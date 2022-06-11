@@ -1,17 +1,19 @@
+import { BreakpointsService } from '../../services/breakpoints.service';
 import { MemesPreviewComponent } from './card-previews/memes-preview/memes-preview.component';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { map, shareReplay } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { IDashboardLayout } from './dashboard-layout.model';
 import { CocktailsPreviewComponent } from './card-previews/cocktails-preview/cocktails-preview.component';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnDestroy {
   private cardsLayout: IDashboardLayout[] = [
     {
       title: 'Cocktails',
@@ -40,21 +42,25 @@ export class DashboardComponent {
     { title: 'Card 5', cols: 1, rows: 1 },
   ];
 
-  /** Based on the screen size, switch from standard to one column per row */
-  public cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      //mobile
-      if (matches) {
-        return this.layoutTooMobile(this.cardsLayout);
-      }
+  public cards: IDashboardLayout[] = [];
 
-      //desktop
-      return this.cardsLayout;
-    }),
-    shareReplay()
+  private isHandset$ = this.pageViewService.isHandset$.subscribe(
+    (isHandset) => {
+      //mobile
+      if (isHandset) {
+        this.cards = this.layoutTooMobile(this.cardsLayout);
+      } else {
+        //desktop
+        this.cards = this.cardsLayout;
+      }
+    }
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private pageViewService: BreakpointsService) {}
+
+  ngOnDestroy(): void {
+    this.isHandset$.unsubscribe();
+  }
 
   private layoutTooMobile(layout: IDashboardLayout[]): IDashboardLayout[] {
     let newLayout = _.cloneDeep(layout);

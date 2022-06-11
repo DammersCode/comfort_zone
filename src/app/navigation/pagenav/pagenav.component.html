@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-toolbar color="primary">
+  <mat-toolbar *ngIf="coreService.isMobileNavigation" color="primary">
     <button
       id="toolbar-navigate-before"
       mat-stroked-button
@@ -17,6 +17,7 @@
     </button>
   </mat-toolbar>
   <!-- Add Content Here -->
+
   <div>
     <div loadComponent *ngIf="pageConfig.page" [config]="pageConfig.page">
       <div #target></div>

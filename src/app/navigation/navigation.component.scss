@@ -2,6 +2,11 @@
   margin: 0 1rem 0 0;
 }
 
+.menu-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
 .sidenav-container {
   height: 100%;
 }
