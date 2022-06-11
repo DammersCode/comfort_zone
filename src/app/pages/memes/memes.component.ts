@@ -12,6 +12,7 @@ import { ImgFlipModel } from './img-flip.model';
 })
 export class MemesPage implements OnInit {
   //TODO cards lazy load with picture
+  //TODO infinite scroll
   public readonly apiURLs = {
     getMemes: 'https://api.imgflip.com/get_memes',
     memeGenerator: 'https://imgflip.com/memegenerator/',
