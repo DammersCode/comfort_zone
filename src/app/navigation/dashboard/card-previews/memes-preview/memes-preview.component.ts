@@ -13,7 +13,9 @@ export class MemesPreviewComponent implements OnInit {
   private apiURLs = 'https://api.imgflip.com/get_memes';
   public memes: Meme[] = [];
 
-  constructor(public breakpointsService: BreakpointsService) {}
+  constructor(public breakpointsService: BreakpointsService) {
+    this.breakpointsService.isXLarge$;
+  }
 
   ngOnInit(): void {
     fetch(this.apiURLs).then((result) => {

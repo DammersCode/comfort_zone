@@ -8,7 +8,10 @@
     alt="{{ memes[0]?.name }}"
   />
   <img
-    *ngIf="breakpointsService.isLarge$ | async"
+    *ngIf="
+      (breakpointsService.isLarge$ | async) ||
+      (breakpointsService.isXLarge$ | async)
+    "
     [lazyLoad]="memes[1]?.url ?? ''"
     [width]="memes[1]?.width"
     [height]="memes[1]?.height"
