@@ -32,4 +32,12 @@ export class BreakpointsService {
       }),
       shareReplay()
     );
+  public isLarge$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Large)
+    .pipe(
+      map(({ matches }) => {
+        return matches;
+      }),
+      shareReplay()
+    );
 }

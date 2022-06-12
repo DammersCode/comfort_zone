@@ -1,3 +1,4 @@
+import { BreakpointsService } from './../../../../services/breakpoints.service';
 import { ImgFlipModel, Meme } from './../../../../pages/memes/img-flip.model';
 import { MemesPage } from './../../../../pages/memes/memes.component';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ export class MemesPreviewComponent implements OnInit {
   private apiURLs = 'https://api.imgflip.com/get_memes';
   public memes: Meme[] = [];
 
-  constructor() {}
+  constructor(public breakpointsService: BreakpointsService) {}
 
   ngOnInit(): void {
     fetch(this.apiURLs).then((result) => {
