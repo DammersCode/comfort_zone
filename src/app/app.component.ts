@@ -1,7 +1,6 @@
 import { CoreService } from './app-core.service';
-import { NavigationService } from './services/navigation.service';
-import { IconRegistrationService } from './services/icon-registration.service';
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor(private CoreService: CoreService) {}
+
   title = 'Comfort Zone';
 }
