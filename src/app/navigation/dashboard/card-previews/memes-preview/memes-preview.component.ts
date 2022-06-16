@@ -1,5 +1,5 @@
 import { ImgFlipModel, Meme } from './../../../../pages/memes/img-flip.model';
-import { MemesPage } from './../../../../pages/memes/memes.component';
+
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 

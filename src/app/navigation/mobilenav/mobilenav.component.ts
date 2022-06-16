@@ -4,22 +4,16 @@ import { IPageNavigation } from './interfaces/ipage-navigation.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NavigationService } from '../../services/navigation.service';
-import { CoreService } from '../../app-core.service';
 
 @Component({
-  selector: 'pagenav',
-  templateUrl: './pagenav.component.html',
-  styleUrls: ['./pagenav.component.scss'],
+  selector: 'mobilenav',
+  templateUrl: './mobilenav.component.html',
+  styleUrls: ['./mobilenav.component.scss'],
 })
-export class PageNavigation implements OnInit {
-  public pageConfig: IPageNavigation = { title: 'error' };
+export class MobileNavigation implements OnInit {
+  @Input() show: boolean = false;
 
-  constructor(
-    public navigationService: NavigationService,
-    public coreService: CoreService
-  ) {
-    this.pageConfig = this.navigationService.firstChildPageConfig;
-  }
+  constructor(private navigationService: NavigationService) {}
 
   ngOnInit(): void {}
 
