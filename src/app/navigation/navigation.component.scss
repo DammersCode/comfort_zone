@@ -9,6 +9,10 @@
 
 .sidenav-container {
   height: 100%;
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .sidenav {

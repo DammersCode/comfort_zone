@@ -7,10 +7,12 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar style="display: flex; justify-content: space-between">
+    <mat-toolbar class="toolbar">
       Menu
-      <div matTooltip="Mobile Navigation">
-        <mat-slide-toggle (change)="toggleChanged($event)"></mat-slide-toggle>
+      <div *ngIf="isHandset$ | async" matTooltip="Mobile Navigation">
+        <mat-slide-toggle
+          (change)="mobilenav.show = $event.checked"
+        ></mat-slide-toggle>
       </div>
     </mat-toolbar>
     <mat-nav-list>
@@ -45,7 +47,7 @@
       </ngx-typed-js>
     </mat-toolbar>
     <!-- Add Content Here -->
-
+    <mobilenav #mobilenav></mobilenav>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

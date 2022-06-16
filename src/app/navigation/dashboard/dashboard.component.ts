@@ -1,12 +1,13 @@
 import { BreakpointsService } from '../../services/breakpoints.service';
 import { MemesPreviewComponent } from './card-previews/memes-preview/memes-preview.component';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map, shareReplay } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { IDashboardLayout } from './dashboard-layout.model';
 import { CocktailsPreviewComponent } from './card-previews/cocktails-preview/cocktails-preview.component';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-dashboard',

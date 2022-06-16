@@ -1,6 +1,11 @@
-.container {
+.mobilenav-container {
   mat-toolbar {
+    position: fixed;
+    bottom: 6px;
+
     justify-content: center;
+    z-index: 1;
+
     #toolbar-navigate-before {
       position: absolute;
       left: 1rem;
@@ -9,10 +14,6 @@
     #toolbar-navigate-forward {
       position: absolute;
       right: 1rem;
-    }
-
-    #toolbar-title {
-      margin: 0 1rem;
     }
   }
 }

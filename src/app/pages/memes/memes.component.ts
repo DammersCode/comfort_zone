@@ -28,11 +28,11 @@ export class MemesPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isHandset$.subscribe((handset) => {
-      if (handset) {
-      } else {
-      }
-    });
+    // this.isHandset$.subscribe((handset) => {
+    //   if (handset) {
+    //   } else {
+    //   }
+    // });
 
     fetch(this.apiURLs.getMemes).then((result) => {
       result.json().then((json) => {
@@ -42,10 +42,10 @@ export class MemesPage implements OnInit {
   }
 
   onCopied() {
-    this.snackBar.open('Copied', undefined, {
+    this.snackBar.open('Link Copied', undefined, {
       duration: 2500,
       horizontalPosition: 'right',
-      verticalPosition: 'top',
+      verticalPosition: 'bottom',
       panelClass: 'snackbar',
     });
   }

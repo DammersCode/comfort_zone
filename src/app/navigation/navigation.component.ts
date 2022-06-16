@@ -1,20 +1,9 @@
 import { CoreService } from './../app-core.service';
-import { PageNavigation } from './pagenav/pagenav.component';
 import { BreakpointsService } from '../services/breakpoints.service';
 
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  VERSION,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit, VERSION } from '@angular/core';
 
-import { Observable, Subscription, take } from 'rxjs';
-import { NavigationService } from '../services/navigation.service';
-import { IPageNavigation } from './pagenav/interfaces/ipage-navigation.model';
+import { Observable, take } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
