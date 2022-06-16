@@ -1,6 +1,10 @@
 <div class="meme-container">
   <div *ngFor="let meme of (memesJson$ | async)?.data?.memes">
-    <mat-card class="meme-card" data-aos="fade-in">
+    <mat-card
+      class="meme-card"
+      data-aos="fade-in"
+      data-aos-anchor-placement="top-bottom"
+    >
       <mat-card-header>
         <mat-card-title>{{ meme.name }}</mat-card-title>
         <mat-card-subtitle
