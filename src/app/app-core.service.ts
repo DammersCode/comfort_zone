@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import * as AOS from 'aos';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {
+  ActivatedRoute,
   NavigationCancel,
   NavigationEnd,
   NavigationError,
@@ -15,6 +16,8 @@ import {
   RouteConfigLoadStart,
   Router,
 } from '@angular/router';
+import * as _ from 'lodash';
+import { PageDefaultConfig } from './app-core.model';
 
 /**
  * Core Service Registers all Core Services that needs to be included in the app
@@ -24,6 +27,9 @@ import {
   providedIn: 'root',
 })
 export class CoreService {
+  private pageConfig: PageDefaultConfig = {};
+  private defaultSpinnerTimeout: number = 800;
+
   public scrollEventSubject$: Subject<Event> = new Subject();
   public scrollEvent$: Observable<Event> =
     this.scrollEventSubject$.asObservable();
@@ -38,13 +44,14 @@ export class CoreService {
   ) {
     //#region lazy load spinner
     this.router.events.subscribe((event) => {
-      let timeout: number = 800;
+      this.pageConfig = (<any>event)?.route?.data;
+      let timeout: number = 1800;
       if (event instanceof RouteConfigLoadStart) {
         this.spinner.show();
       } else if (event instanceof RouteConfigLoadEnd) {
         setTimeout(() => {
           this.spinner.hide();
-        }, timeout);
+        }, this.pageConfig?.loadingTimeout ?? this.defaultSpinnerTimeout);
       }
     });
     //#endregion
