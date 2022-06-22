@@ -1,7 +1,7 @@
 import { MobileNavigation } from './navigation/mobilenav/mobilenav.component';
 import { CoreService } from './app-core.service';
 import { IconRegistrationService } from './services/icon-registration.service';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CocktailsPreviewComponent } from './navigation/dashboard/card-previews/cocktails-preview/cocktails-preview.component';
 import { DynamicComponentModule } from './directives/dynamic-component/dynamic-component.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { MemesPreviewComponent } from './navigation/dashboard/card-previews/memes-preview/memes-preview.component';
@@ -33,6 +34,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -68,8 +70,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSnackBarModule,
     MatTooltipModule,
     MatSlideToggleModule,
+    NgxSpinnerModule,
+    MatProgressSpinnerModule,
   ],
   providers: [CoreService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
