@@ -1,3 +1,5 @@
+import { LiveChatPreview } from './navigation/dashboard/card-previews/live-chat-preview/live-chat-preview.component';
+import { TicTacToePreview } from './navigation/dashboard/card-previews/tic-tac-toe-preview/tic-tac-toe-preview.component';
 import { MobileNavigation } from './navigation/mobilenav/mobilenav.component';
 import { CoreService } from './app-core.service';
 import { IconRegistrationService } from './services/icon-registration.service';
@@ -47,6 +49,8 @@ import { PsScriptPreview } from './navigation/dashboard/card-previews/ps-script-
     MobileNavigation,
     MemesPreviewComponent,
     PsScriptPreview,
+    TicTacToePreview,
+    LiveChatPreview,
   ],
   imports: [
     BrowserModule,
