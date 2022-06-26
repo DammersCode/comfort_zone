@@ -3,6 +3,7 @@ import { PageTitleStrategyService } from '../app/services/page-title-strategy.se
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, TitleStrategy } from '@angular/router';
+import { PageDefaultConfig } from './app-core.model';
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -28,6 +29,9 @@ export const routes: Routes = [
   {
     title: 'Memes',
     path: 'memes',
+    data: {
+      loadingTimeout: 1800,
+    } as PageDefaultConfig,
     loadChildren: () =>
       import('./pages/memes/memes.module').then((m) => m.MemesModule),
   },
