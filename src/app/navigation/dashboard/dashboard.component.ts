@@ -42,7 +42,7 @@ export class DashboardComponent implements OnDestroy {
     {
       title: 'Python',
       subtitle: 'Write your own python code in WEB.',
-      cols: 2,
+      cols: 1,
       rows: 1,
       icon: 'python',
       link: '/py-script',
