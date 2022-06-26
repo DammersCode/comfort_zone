@@ -5,7 +5,11 @@
       [colspan]="card.cols"
       [rowspan]="card.rows"
     >
-      <mat-card class="dashboard-card" data-aos="zoom-in">
+      <mat-card
+        class="dashboard-card"
+        data-aos="zoom-in"
+        routerLink="{{ card.link }}"
+      >
         <mat-card-header>
           <mat-icon
             *ngIf="card.icon"
@@ -15,14 +19,14 @@
           ></mat-icon>
           <mat-card-title>
             {{ card.title }}
-            <button
+            <!-- <button
               mat-icon-button
               class="more-button"
               [matMenuTriggerFor]="menu"
               aria-label="Toggle menu"
             >
               <mat-icon>more_vert</mat-icon>
-            </button>
+            </button> -->
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item routerLink="{{ card.link }}">Open</button>
             </mat-menu>

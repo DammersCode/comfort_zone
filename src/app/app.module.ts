@@ -1,3 +1,5 @@
+import { LiveChatPreview } from './navigation/dashboard/card-previews/live-chat-preview/live-chat-preview.component';
+import { TicTacToePreview } from './navigation/dashboard/card-previews/tic-tac-toe-preview/tic-tac-toe-preview.component';
 import { MobileNavigation } from './navigation/mobilenav/mobilenav.component';
 import { CoreService } from './app-core.service';
 import { IconRegistrationService } from './services/icon-registration.service';
@@ -35,6 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { PsScriptPreview } from './navigation/dashboard/card-previews/ps-script-preview/ps-script-preview.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CocktailsPreviewComponent,
     MobileNavigation,
     MemesPreviewComponent,
+    PsScriptPreview,
+    TicTacToePreview,
+    LiveChatPreview,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +79,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatSlideToggleModule,
     NgxSpinnerModule,
     MatProgressSpinnerModule,
+    MonacoEditorModule.forRoot(),
   ],
   providers: [CoreService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
