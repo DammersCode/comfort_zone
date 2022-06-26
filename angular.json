@@ -26,7 +26,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "node_modules/monaco-editor",
+                "output": "assets/monaco-editor"
+              },
+              "src/favicon.ico",
+              "src/assets",
+              "src/_redirects"
+            ],
             "styles": [
               "./node_modules/ngx-spinner/animations/square-jelly-box.css",
               "./node_modules/ngx-spinner/animations/ball-running-dots.css",

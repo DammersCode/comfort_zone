@@ -1,3 +1,4 @@
+import { PsScriptPreview } from './card-previews/ps-script-preview/ps-script-preview.component';
 import { BreakpointsService } from '../../services/breakpoints.service';
 import { MemesPreviewComponent } from './card-previews/memes-preview/memes-preview.component';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -38,7 +39,17 @@ export class DashboardComponent implements OnDestroy {
       cols: 1,
       rows: 1,
     },
-    { title: 'Card 3', cols: 2, rows: 1 },
+    {
+      title: 'Python',
+      subtitle: 'Write your own python code in WEB.',
+      cols: 2,
+      rows: 1,
+      icon: 'python',
+      link: '/py-script',
+      preview: {
+        component: PsScriptPreview,
+      },
+    },
     { title: 'Card 4', cols: 1, rows: 1 },
     { title: 'Card 5', cols: 1, rows: 1 },
   ];

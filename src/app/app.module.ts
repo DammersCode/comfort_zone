@@ -35,6 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { PsScriptPreview } from './navigation/dashboard/card-previews/ps-script-preview/ps-script-preview.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CocktailsPreviewComponent,
     MobileNavigation,
     MemesPreviewComponent,
+    PsScriptPreview,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatSlideToggleModule,
     NgxSpinnerModule,
     MatProgressSpinnerModule,
+    MonacoEditorModule.forRoot(),
   ],
   providers: [CoreService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

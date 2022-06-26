@@ -1,5 +1,5 @@
 .grid-container {
-  margin: 20px;
+  // margin: 20px;
 }
 
 .dashboard-card {
@@ -8,6 +8,12 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  cursor: pointer;
+  border: 0px solid;
+}
+
+.dashboard-card:hover {
+  border: 2px solid rgb(123, 31, 162);
 }
 
 .more-button {

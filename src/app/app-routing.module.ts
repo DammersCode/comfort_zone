@@ -4,6 +4,7 @@ import { PageTitleStrategyService } from '../app/services/page-title-strategy.se
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, TitleStrategy } from '@angular/router';
 import { PageDefaultConfig } from './app-core.model';
+import { PyScriptPage } from './pages/py-script/py-script.component';
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -34,6 +35,15 @@ export const routes: Routes = [
     } as PageDefaultConfig,
     loadChildren: () =>
       import('./pages/memes/memes.module').then((m) => m.MemesModule),
+  },
+  {
+    title: 'Py-Script',
+    path: 'py-script',
+    data: { loadingTimeout: 400 } as PageDefaultConfig,
+    loadComponent: () =>
+      import('./pages/py-script/py-script.component').then(
+        (c) => c.PyScriptPage
+      ),
   },
   // {
   //
