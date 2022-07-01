@@ -1,0 +1,51 @@
+.meme-container {
+  background-color: #303030;
+  border: 1rem solid #303030;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: width 1s ease-in-out, height 1s ease-in-out;
+
+  .meme-card {
+    margin: 1rem;
+
+    #meme-id {
+      color: #69f0ae;
+      text-decoration: none;
+    }
+  }
+
+  img {
+    margin: 0 1rem 1rem 1rem;
+    max-inline-size: 100%;
+    block-size: auto;
+
+    @media (max-width: 340px) {
+      max-width: 150px;
+    }
+    @media (max-width: 440px) and (min-width: 340px) {
+      max-width: 200px;
+    }
+    max-width: 300px;
+
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  img.ng-lazyloaded {
+    opacity: 1;
+  }
+}
+
+::ng-deep .snackbar {
+  ::ng-deep .mat-simple-snackbar {
+    display: flex;
+    justify-content: center;
+  }
+
+  min-width: unset !important;
+  background-color: #69f0ae;
+}

@@ -1,0 +1,22 @@
+<div class="img-container">
+  <img
+    [lazyLoad]="memes[0]?.url ?? ''"
+    [width]="memes[0]?.width"
+    [height]="memes[0]?.height"
+    [useSrcset]="true"
+    decoding="async"
+    alt="{{ memes[0]?.name }}"
+  />
+  <img
+    *ngIf="
+      (breakpointsService.isLarge$ | async) ||
+      (breakpointsService.isXLarge$ | async)
+    "
+    [lazyLoad]="memes[1]?.url ?? ''"
+    [width]="memes[1]?.width"
+    [height]="memes[1]?.height"
+    [useSrcset]="true"
+    decoding="async"
+    alt="{{ memes[1]?.name }}"
+  />
+</div>

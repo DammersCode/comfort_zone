@@ -1,0 +1,48 @@
+@import "~@angular/material/theming";
+
+@mixin impressive-scrollbar-theme($theme) {
+  $config: mat-get-color-config($theme);
+  $accent: map-get($config, accent);
+  $primary: map-get($config, primary);
+  $warn: map-get($config, warn);
+}
+
+body {
+  overflow-y: overlay !important;
+  ::-webkit-scrollbar {
+    display: overlay;
+    margin: 2px 0;
+    width: 0.5rem;
+    height: 5px;
+    overflow-y: overlay;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #e1e1e1;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #303030;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}

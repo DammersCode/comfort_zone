@@ -1,0 +1,54 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="toolbar">
+      Menu
+      <div *ngIf="isHandset$ | async" matTooltip="Mobile Navigation">
+        <mat-slide-toggle
+          (change)="mobilenav.show = $event.checked"
+        ></mat-slide-toggle>
+      </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/cocktails">Cocktails</a>
+      <a mat-list-item routerLink="/memes">Memes</a>
+      <a mat-list-item routerLink="/py-script">Py Script</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        id="sidenav-button"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-stroked-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <ngx-typed-js
+        (lastStringBackspaced)="setDefaultTyping()"
+        [strings]="_typeConfig.typeString"
+        [loop]="_typeConfig.config.loop"
+        [smartBackspace]="true"
+        [typeSpeed]="80"
+        [backSpeed]="40"
+        [backDelay]="1000"
+        [startDelay]="_typeConfig.config.startDelay"
+        [showCursor]="_typeConfig.config.showCursor"
+      >
+        <span class="typing"></span>
+      </ngx-typed-js>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <mobilenav #mobilenav></mobilenav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

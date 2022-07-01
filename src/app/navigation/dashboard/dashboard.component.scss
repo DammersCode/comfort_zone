@@ -1,0 +1,31 @@
+.grid-container {
+  // margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  cursor: pointer;
+  border: 0px solid;
+}
+
+.dashboard-card:hover {
+  border: 2px solid rgb(123, 31, 162);
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.dashboard-card-icon {
+  border-radius: unset;
+}

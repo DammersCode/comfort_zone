@@ -1,0 +1,49 @@
+<div class="meme-container">
+  <div *ngFor="let meme of (memesJson$ | async)?.data?.memes">
+    <mat-card
+      class="meme-card"
+      data-aos="fade-in"
+      data-aos-anchor-placement="top-bottom"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ meme.name }}</mat-card-title>
+        <mat-card-subtitle
+          ><a
+            id="meme-id"
+            [href]="apiURLs.memeGenerator + meme.id"
+            target="_blank"
+            >{{ meme.id }}</a
+          ></mat-card-subtitle
+        >
+      </mat-card-header>
+
+      <mat-card-content>
+        <img
+          mat-card-image
+          [lazyLoad]="meme.url"
+          [width]="meme.width"
+          [height]="meme.height"
+          [useSrcset]="true"
+          decoding="async"
+          alt="{{ meme.name }}"
+        />
+      </mat-card-content>
+      <mat-card-actions>
+        <a
+          mat-flat-button
+          [href]="apiURLs.memeGenerator + meme.id"
+          target="_blank"
+        >
+          Open Editor
+        </a>
+        <button
+          mat-flat-button
+          [cdkCopyToClipboard]="meme.url"
+          (click)="onCopied()"
+        >
+          Copy Link
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
