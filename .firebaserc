@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "angular-comfort-zone": {
+      "hosting": {
+        "comfort_zone": [
+          "comfort-zone"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "angular-comfort-zone"
   }
