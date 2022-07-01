@@ -1,5 +1,5 @@
 import { DashboardComponent } from './navigation/dashboard/dashboard.component';
-import { PageTitleStrategyService } from '../app/services/page-title-strategy.service';
+import { PageTitleStrategyService } from './strategy/page-title.strategy';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, TitleStrategy } from '@angular/router';

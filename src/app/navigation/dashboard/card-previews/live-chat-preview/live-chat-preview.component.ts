@@ -4,6 +4,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+import { SubSink } from 'subsink2';
 
 @Component({
   selector: 'live-chat-preview',
