@@ -3,13 +3,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "PowerShell Launch",
-      "type": "PowerShell",
-      "request": "launch",
-      "script": "${file}",
-      "cwd": "${file}"
-    },
-    {
       "name": "Launch Edge",
       "request": "launch",
       "type": "pwa-msedge",
