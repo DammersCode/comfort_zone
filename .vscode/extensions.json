@@ -5,6 +5,8 @@
     "johnpapa.Angular2",
     "Gruntfuggly.todo-tree",
     "traBpUkciP.vscode-npm-scripts",
-    "nrwl.angular-console"
+    "nrwl.angular-console",
+    "streetsidesoftware.code-spell-checker",
+    "ms-edgedevtools.vscode-edge-devtools"
   ]
 }
